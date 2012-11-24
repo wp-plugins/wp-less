@@ -10,7 +10,7 @@ class WPLessConfiguration extends WPPluginToolkitConfiguration
   /**
    * Refers to the version of the plugin
    */
-  const VERSION =   '1.5.0';
+  const VERSION =   '1.5.1';
 
 
 
@@ -109,4 +109,17 @@ class WPLessConfiguration extends WPPluginToolkitConfiguration
 	{
 		return $this->ttl;
 	}
+
+    /**
+     * Sets the TTL fo a compiled CSS file
+     *
+     * @api
+     * @param $ttl
+     * @since 1.5.1
+     */
+    public function setTtl($ttl)
+    {
+        $this->ttl = (int)$ttl;
+    }
+
 }
