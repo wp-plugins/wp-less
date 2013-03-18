@@ -34,7 +34,7 @@ Advanced topics on how to use the plugin API are [available on the Github projec
 The sole requirement is to use WordPress API and LESS convention: the `.less` extension.
 
 **Minimal Requirements**: PHP 5.2.4 and WordPress 3.2.
-**Relies on**: [LESSPHP 0.3.8](http://leafo.net/lessphp/), [plugin-toolkit](http://wordpress.org/extend/plugins/plugin-toolkit/).
+**Relies on**: [LESSPHP](http://leafo.net/lessphp/), [plugin-toolkit](http://wordpress.org/extend/plugins/plugin-toolkit/).
 
 *Notice*: in case you'd like to drop the usage of this plugin, it's safe to do it. You will just need to convert back your stylesheets to CSS.
 
@@ -52,11 +52,15 @@ The sole requirement is to use WordPress API and LESS convention: the `.less` ex
 
 == Changelog ==
 
+= Version 1.5.3 =
+
+ * lessphp: updated to v0.3.9
+
 = Version 1.5.2 =
 
- * bug: fixed garbage collector bug (([#28](https://github.com/oncletom/wp-less/issue/28))
- * bug: fixed cachebusting URI generation in deep mode (([#29](https://github.com/oncletom/wp-less/issue/29))
- * bug: fixed access to Plugin instance, matching the documentation (([#20](https://github.com/oncletom/wp-less/issue/20))
+ * bug: fixed garbage collector bug ([#28](https://github.com/oncletom/wp-less/issue/28))
+ * bug: fixed cachebusting URI generation in deep mode ([#29](https://github.com/oncletom/wp-less/issue/29))
+ * bug: fixed access to Plugin instance, matching the documentation ([#20](https://github.com/oncletom/wp-less/issue/20))
 
 = Version 1.5.1 =
 
