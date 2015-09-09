@@ -54,7 +54,7 @@ class Less_Exception_Parser extends Exception{
 
 	protected function getInput(){
 
-		if( !$this->input && $this->currentFile && $this->currentFile['filename'] ){
+		if( !$this->input && $this->currentFile && $this->currentFile['filename'] && file_exists($this->currentFile['filename']) ){
 			$this->input = file_get_contents( $this->currentFile['filename'] );
 		}
 	}
@@ -83,8 +83,9 @@ class Less_Exception_Parser extends Exception{
 				$count = count($lines);
 				$start_line = max(0, $line-3);
 				$last_line = min($count, $start_line+6);
+				$num_len = strlen($last_line);
 				for( $i = $start_line; $i < $last_line; $i++ ){
-					$this->message .= "\n".($i+1).') '.$lines[$i];
+					$this->message .= "\n".str_pad($i+1,$num_len,'0',STR_PAD_LEFT).'| '.$lines[$i];
 				}
 			}
 		}
@@ -98,7 +99,12 @@ class Less_Exception_Parser extends Exception{
 	 */
 	public function getLineNumber(){
 		if( $this->index ){
-			return substr_count($this->input, "\n", 0, $this->index) + 1;
+			// https://bugs.php.net/bug.php?id=49790
+			if (ini_get("mbstring.func_overload")) {
+				return substr_count(substr($this->input, 0, $this->index), "\n") + 1;
+			} else {
+				return substr_count($this->input, "\n", 0, $this->index) + 1;
+			}
 		}
 		return 1;
 	}
